@@ -106,6 +106,5 @@ class UserVM @Inject constructor(
                     isLoading.value = false
                 }
             }
-
         }
 }

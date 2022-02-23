@@ -33,8 +33,8 @@ class HomeRecommendFragment: Fragment() {
 
     val mGlobal by lazy { Global.INSTANCE }
     lateinit var binding: FragmentHomeRecommendBinding
-    private val adapter by lazy { UserCardAdapter() }
     private val vm: UserVM by viewModels()
+    private val adapter by lazy { UserCardAdapter(vm) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentHomeRecommendBinding.inflate(inflater, container, false)

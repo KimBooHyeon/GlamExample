@@ -6,6 +6,9 @@
         <import type="android.view.View" />
         <import type="android.text.TextUtils" />
         <variable
+            name="vm"
+            type="com.cupist.glam.view.vm.UserVM" />
+        <variable
             name="item"
             type="com.cupist.glam.network.model.User" />
     </data>
@@ -66,15 +69,26 @@
                                 android:textColor="@color/white"
                                 android:background="@android:color/transparent"/>
                         </androidx.cardview.widget.CardView>
-                        <TextView
+                        <LinearLayout
+                            android:orientation="horizontal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
-                            android:textSize="24sp"
-                            android:textColor="@color/white"
-                            app:nickname="@{item.name}"
-                            app:age="@{item.age}"
-                            tools:text="닉네임, 30"/>
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="24sp"
+                                android:textColor="@color/white"
+                                app:nickname="@{item.name}"
+                                app:age="@{item.age}"
+                                tools:text="닉네임, 30"/>
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:src="@drawable/info"/>
+                        </LinearLayout>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

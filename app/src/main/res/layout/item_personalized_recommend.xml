@@ -1,13 +1,214 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.constraintlayout.widget.ConstraintLayout
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@drawable/bg_border_radius">
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/personalized_recommendation"
+            android:layout_marginBottom="14dp"
+            android:textSize="20sp"
+            android:textColor="@color/black_1"
+            android:textStyle="bold"/>
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="맞춤"/>
+            android:layout_height="50dp">
+            <ImageView
+                android:id="@+id/icon1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/today" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/textview1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/icon1"
+                android:text="@string/recommend_glam"
+                android:textColor="@color/gray4"
+                android:textSize="14sp"
+                android:textStyle="bold"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/textview1"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/hot" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:cardCornerRadius="6dp"
+                app:cardBackgroundColor="@color/glam_blue"
+                app:cardElevation="0dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/select"
+                    android:textColor="@color/white"
+                    android:background="@android:color/transparent"/>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/icon2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/dia" />
+
+            <TextView
+                android:id="@+id/textview2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/icon2"
+                android:text="@string/recommend_dia"
+                android:textColor="@color/gray4"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/textview2"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/hot" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:cardCornerRadius="6dp"
+                app:cardBackgroundColor="@color/glam_blue"
+                app:cardElevation="0dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/select"
+                    android:textColor="@color/white"
+                    android:background="@android:color/transparent"/>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/icon3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/glamour" />
+
+            <TextView
+                android:id="@+id/textview3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/icon3"
+                android:text="@string/recommend_glamour"
+                android:textColor="@color/gray4"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/textview3"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/hot" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:cardCornerRadius="6dp"
+                app:cardBackgroundColor="@color/glam_blue"
+                app:cardElevation="0dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/select"
+                    android:textColor="@color/white"
+                    android:background="@android:color/transparent"/>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/icon4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/withpet" />
+
+            <TextView
+                android:id="@+id/textview4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/icon4"
+                android:text="@string/recommend_withpet"
+                android:textColor="@color/gray4"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:cardCornerRadius="6dp"
+                app:cardBackgroundColor="@color/glam_blue"
+                app:cardElevation="0dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/select"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:background="@android:color/transparent"/>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="14dp"
+            app:cardBackgroundColor="@color/gray1"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="0dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/more_resommendation"
+                android:textSize="14sp"
+                android:textColor="@color/black_1"
+                android:textStyle="bold"/>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 </layout>

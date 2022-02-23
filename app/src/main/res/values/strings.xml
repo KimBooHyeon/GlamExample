@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">GlamExample</string>
     <string name="today_recommendation">오늘의 추천</string>
+    <string name="personalized_recommendation">맞춤추천</string>
+    <string name="select">선택</string>
+    <string name="recommend_glam">글램 추천</string>
+    <string name="recommend_dia">최상위 매력</string>
+    <string name="recommend_glamour">볼륨감 있는 체형</string>
+    <string name="recommend_withpet">반려 동물을 키우는</string>
+    <string name="more_resommendation">24개 항목 모두 보기</string>
+
     <string name="height">%dcm</string>
 </resources>
