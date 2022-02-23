@@ -1,14 +1,16 @@
 package com.cupist.glam.network
 
-interface ApiDataInterface {
-    /*@GET("summoner/{nickname}")
-    fun getSummonerInfo(
-        @Path("nickname") nickname: String
-    ): Observable<ResponseSummoner>
+import com.cupist.glam.network.model.ResponsePerson
+import retrofit2.Response
+import retrofit2.http.GET
+import retrofit2.http.Path
 
-    @GET("summoner/{nickname}/matches")
-    fun getSummonerGameInfo(
-        @Path("nickname") nickname: String,
-        @Query("lastMatch") lastMatch: Long?,
-    ): Observable<ResponseMatch>*/
+interface ApiDataInterface {
+    @GET("introduction")
+    suspend fun getTodayRecommendList(): Response<ResponsePerson>
+
+    @GET("introduction/additional/{next}")
+    fun getAdditionalRecommendList(
+        @Path("next") next: Int?
+    ): Response<ResponsePerson>
 }

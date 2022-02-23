@@ -20,7 +20,7 @@ class HomeFragment: Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val pagerAdapter = FragmentAdapter(requireActivity())
-        pagerAdapter.addFragment(HomeFirstFragment())
+        pagerAdapter.addFragment(HomeRecommendFragment())
         pagerAdapter.addFragment(HomeSecondFragment())
         pagerAdapter.addFragment(HomeThirdFragment())
 
