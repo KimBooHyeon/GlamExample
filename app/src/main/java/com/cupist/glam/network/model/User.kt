@@ -1,6 +1,10 @@
 package com.cupist.glam.network.model
 
-data class Person(
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class User(
     var age: Int,
     var company: String,
     var distance: Long,
@@ -11,12 +15,9 @@ data class Person(
     var location: String,
     var name: String,
     var pictures: ArrayList<String>,
-)
+): Parcelable
 
-data class ResponsePerson(
-    var data: ArrayList<Person>
-)
-
-interface DataRepository {
-    fun getTodayRecommendList(): ResponsePerson
-}
+@Parcelize
+data class UserResponse(
+    var data: List<User>
+): Parcelable

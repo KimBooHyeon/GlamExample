@@ -1,6 +1,6 @@
 package com.cupist.glam.di
 
-import com.cupist.glam.domain.repository.PersonRepository
+import com.cupist.glam.domain.repository.UserRepository
 import com.cupist.glam.network.ApiContainer
 import dagger.Module
 import dagger.Provides
@@ -14,8 +14,8 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideSearchRepository(api: ApiContainer): PersonRepository {
-        return PersonRepository(api)
+    fun provideSearchRepository(api: ApiContainer): UserRepository {
+        return UserRepository(api)
     }
 
 }

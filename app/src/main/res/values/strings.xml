@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GlamExample</string>
+    <string name="height">%dcm</string>
 </resources>
