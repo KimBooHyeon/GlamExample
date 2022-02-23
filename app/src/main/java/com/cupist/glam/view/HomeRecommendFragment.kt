@@ -14,9 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SimpleItemAnimator
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.cupist.glam.Global
 import com.cupist.glam.R
 import com.cupist.glam.databinding.FragmentHomeRecommendBinding
 import com.cupist.glam.network.model.User
+import com.cupist.glam.utils.VerticalSpaceDecoration
 import com.cupist.glam.view.adapter.UserCardAdapter
 import com.cupist.glam.view.vm.UserVM
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,6 +31,7 @@ import java.util.*
 @AndroidEntryPoint
 class HomeRecommendFragment: Fragment() {
 
+    val mGlobal by lazy { Global.INSTANCE }
     lateinit var binding: FragmentHomeRecommendBinding
     private val adapter by lazy { UserCardAdapter() }
     private val vm: UserVM by viewModels()
@@ -52,6 +55,7 @@ class HomeRecommendFragment: Fragment() {
             if (animator is SimpleItemAnimator) {
                 animator.supportsChangeAnimations = false
             }
+            it.addItemDecoration(VerticalSpaceDecoration(mGlobal.convertDpToPixel(context!!, 20)))
             it.addOnScrollListener(object: RecyclerView.OnScrollListener() {
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     super.onScrolled(recyclerView, dx, dy)

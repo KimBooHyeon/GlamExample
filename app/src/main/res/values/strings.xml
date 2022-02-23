@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">GlamExample</string>
+    <string name="today_recommendation">오늘의 추천</string>
     <string name="height">%dcm</string>
 </resources>

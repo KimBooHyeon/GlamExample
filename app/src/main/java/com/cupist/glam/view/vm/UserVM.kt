@@ -41,6 +41,7 @@ class UserVM @Inject constructor(
                         val list: ArrayList<User> = ArrayList()
                         item.data.forEach { user ->
                             user.viewType = Constants.VIEWTYPE_USER_CARD
+                            user.isTodayRecommend = true
                             list.add(user)
                         }
                         list.add(
@@ -55,7 +56,8 @@ class UserVM @Inject constructor(
                                 location = "",
                                 name = "",
                                 pictures = arrayListOf(),
-                                viewType = Constants.VIEWTYPE_PERSONALIZED_RECOMMEND
+                                viewType = Constants.VIEWTYPE_PERSONALIZED_RECOMMEND,
+                                isTodayRecommend = false
                             )
                         )
                         _userData.value = list

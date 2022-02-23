@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
+        <import type="android.view.View" />
         <import type="android.text.TextUtils" />
         <variable
             name="item"
@@ -28,7 +29,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="48dp"
-                    app:image="@{item.pictures[0]}"
+                    app:image_round="@{item.pictures[0]}"
                     tools:src="@drawable/person"/>
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:orientation="vertical"
@@ -45,6 +46,26 @@
                         android:paddingStart="16dp"
                         android:paddingEnd="16dp"
                         android:background="@drawable/bg_gradient">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="12dp"
+                            app:cardCornerRadius="6dp"
+                            app:cardBackgroundColor="@color/white_25"
+                            app:cardElevation="0dp"
+                            android:visibility="@{item.isTodayRecommend ? View.VISIBLE : View.GONE}">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="4dp"
+                                android:paddingBottom="4dp"
+                                android:paddingLeft="12dp"
+                                android:paddingRight="12dp"
+                                android:text="@string/today_recommendation"
+                                android:textSize="14sp"
+                                android:textColor="@color/white"
+                                android:background="@android:color/transparent"/>
+                        </androidx.cardview.widget.CardView>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -89,7 +110,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="16dp"
-                        android:background="#333333"
+                        android:background="@drawable/bg_bottom_radius"
                         app:layout_constraintBottom_toBottomOf="parent">
                         <androidx.cardview.widget.CardView
                             android:id="@+id/btn_cancel"

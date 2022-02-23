@@ -16,6 +16,7 @@ data class User(
     var name: String,
     var pictures: ArrayList<String>,
     var viewType: Int,
+    var isTodayRecommend: Boolean
 ): Parcelable
 
 @Parcelize
