@@ -5,6 +5,6 @@ import dagger.Reusable
 import javax.inject.Inject
 
 @Reusable
-class UserUseCase @Inject constructor(private val userRepository: UserRepository){
+class UserTodayRecommendUseCase @Inject constructor(private val userRepository: UserRepository) {
     suspend operator fun invoke() = userRepository.getTodayRecommendList()
 }

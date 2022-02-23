@@ -25,7 +25,12 @@ fun TextView.setNicknameAndAge(nickname: String, age: Int) {
 
 @BindingAdapter("job", "distance")
 fun TextView.setJobAndDistance(job: String, distance: Long) {
-    text = String.format("%s %s", job, distance.toString())
+    val dis = if (distance > 1000) {
+        String.format("%.1fkm", distance.toFloat() / 1000.0f)
+    } else {
+        String.format("%dm", distance)
+    }
+    text = String.format("%s · %s", job, dis)
 }
 
 @BindingAdapter("visible")

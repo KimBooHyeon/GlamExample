@@ -18,6 +18,19 @@ data class User(
 ): Parcelable
 
 @Parcelize
+data class Meta(
+    var next: Next?
+): Parcelable {
+    @Parcelize
+    data class Next(
+        var id: Int,
+        var method: String,
+        var url: String
+    ): Parcelable
+}
+
+@Parcelize
 data class UserResponse(
-    var data: List<User>
+    var data: List<User>,
+    var meta: Meta
 ): Parcelable
