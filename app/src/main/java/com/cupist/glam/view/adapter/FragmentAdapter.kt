@@ -1,4 +1,4 @@
-package com.cupist.glam.adapter
+package com.cupist.glam.view.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

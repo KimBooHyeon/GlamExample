@@ -3,7 +3,7 @@
     <data>
         <variable
             name="vm"
-            type="com.cupist.glam.vm.PersonVM" />
+            type="com.cupist.glam.view.vm.PersonVM" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

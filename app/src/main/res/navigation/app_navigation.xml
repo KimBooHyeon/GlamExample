@@ -6,7 +6,7 @@
     app:startDestination="@id/fragment_home">
     <fragment
         android:id="@+id/fragment_home"
-        android:name="com.cupist.glam.ui.HomeFragment"
+        android:name="com.cupist.glam.view.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <!--<action
@@ -19,22 +19,22 @@
     </fragment>
     <fragment
         android:id="@+id/fragment_live"
-        android:name="com.cupist.glam.ui.LiveFragment"
+        android:name="com.cupist.glam.view.LiveFragment"
         android:label="fragment_live"
         tools:layout="@layout/fragment_live"/>
     <fragment
         android:id="@+id/fragment_like_list"
-        android:name="com.cupist.glam.ui.LikeListFragment"
+        android:name="com.cupist.glam.view.LikeListFragment"
         android:label="fragment_like_list"
         tools:layout="@layout/fragment_like_list"/>
     <fragment
         android:id="@+id/fragment_chat_list"
-        android:name="com.cupist.glam.ui.ChatListFragment"
+        android:name="com.cupist.glam.view.ChatListFragment"
         android:label="fragment_chat_list"
         tools:layout="@layout/fragment_chat_list"/>
     <fragment
         android:id="@+id/fragment_profile"
-        android:name="com.cupist.glam.ui.ProfileFragment"
+        android:name="com.cupist.glam.view.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile"/>
 </navigation>

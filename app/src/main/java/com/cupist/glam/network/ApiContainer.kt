@@ -5,7 +5,7 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface ApiDataInterface {
+interface ApiContainer {
     @GET("introduction")
     suspend fun getTodayRecommendList(): Response<ResponsePerson>
 

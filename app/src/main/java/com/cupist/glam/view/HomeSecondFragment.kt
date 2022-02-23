@@ -1,20 +1,20 @@
-package com.cupist.glam.ui
+package com.cupist.glam.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.cupist.glam.databinding.FragmentHomeThirdBinding
+import com.cupist.glam.databinding.FragmentHomeSecondBinding
 
-class HomeThirdFragment: Fragment() {
+class HomeSecondFragment: Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding = FragmentHomeThirdBinding.inflate(inflater, container, false)
+        val binding = FragmentHomeSecondBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

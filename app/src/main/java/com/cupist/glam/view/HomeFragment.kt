@@ -1,4 +1,4 @@
-package com.cupist.glam.ui
+package com.cupist.glam.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.cupist.glam.adapter.FragmentAdapter
+import com.cupist.glam.view.adapter.FragmentAdapter
 import com.cupist.glam.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayoutMediator
 

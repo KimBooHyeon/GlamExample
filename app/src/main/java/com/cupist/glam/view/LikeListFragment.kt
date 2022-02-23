@@ -1,4 +1,4 @@
-package com.cupist.glam.ui
+package com.cupist.glam.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
