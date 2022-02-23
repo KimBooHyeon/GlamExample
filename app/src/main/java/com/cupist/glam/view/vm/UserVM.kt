@@ -8,6 +8,7 @@ import com.cupist.glam.domain.usecase.UserAdditionalRecommendUseCase
 import com.cupist.glam.domain.usecase.UserDynamicLinkUseCase
 import com.cupist.glam.domain.usecase.UserTodayRecommendUseCase
 import com.cupist.glam.network.model.User
+import com.cupist.glam.utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,7 +18,7 @@ class UserVM @Inject constructor(
     private val userTodayRecommendUseCase: UserTodayRecommendUseCase,
     private val userAdditionalRecommendUseCase: UserAdditionalRecommendUseCase,
     private val userDynamicLinkUseCase: UserDynamicLinkUseCase,
-): ViewModel() {
+) : ViewModel() {
     val isLoading = MutableLiveData<Boolean>()
     var nextUrl: String? = null
 
@@ -37,7 +38,27 @@ class UserVM @Inject constructor(
             userTodayRecommendUseCase().let { res ->
                 if (res.isSuccessful) {
                     res.body()?.let { item ->
-                        _userData.value = item.data
+                        val list: ArrayList<User> = ArrayList()
+                        item.data.forEach { user ->
+                            user.viewType = Constants.VIEWTYPE_USER_CARD
+                            list.add(user)
+                        }
+                        list.add(
+                            User(
+                                age=0,
+                                company = "",
+                                distance = 0,
+                                height = 0,
+                                id = 0,
+                                introduction = null,
+                                job = "",
+                                location = "",
+                                name = "",
+                                pictures = arrayListOf(),
+                                viewType = Constants.VIEWTYPE_PERSONALIZED_RECOMMEND
+                            )
+                        )
+                        _userData.value = list
                         getAdditionalRecommendList()
                     }
                 }
@@ -51,7 +72,12 @@ class UserVM @Inject constructor(
             userAdditionalRecommendUseCase().let { res ->
                 if (res.isSuccessful) {
                     res.body()?.let { item ->
-                        _userData.value = item.data
+                        val list: ArrayList<User> = ArrayList()
+                        item.data.forEach { user ->
+                            user.viewType = 1
+                            list.add(user)
+                        }
+                        _userData.value = list
                         nextUrl = item.meta.next?.url
                     }
                 }
@@ -66,7 +92,12 @@ class UserVM @Inject constructor(
                 userDynamicLinkUseCase(it).let { res ->
                     if (res.isSuccessful) {
                         res.body()?.let { item ->
-                            _userData.value = item.data
+                            val list: ArrayList<User> = ArrayList()
+                            item.data.forEach { user ->
+                                user.viewType = 1
+                                list.add(user)
+                            }
+                            _userData.value = list
                             nextUrl = item.meta.next?.url
                         }
                     }

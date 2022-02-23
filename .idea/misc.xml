@@ -14,7 +14,9 @@
         <entry key="app/src/main/res/layout/fragment_like_list.xml" value="0.40208333333333335" />
         <entry key="app/src/main/res/layout/fragment_live.xml" value="0.40208333333333335" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.40208333333333335" />
+        <entry key="app/src/main/res/layout/item_empty.xml" value="0.1096757852077001" />
         <entry key="app/src/main/res/layout/item_person_card.xml" value="0.2203125" />
+        <entry key="app/src/main/res/layout/item_personalized_recommend.xml" value="0.28958333333333336" />
         <entry key="app/src/main/res/layout/item_user_card.xml" value="0.25364583333333335" />
       </map>
     </option>
