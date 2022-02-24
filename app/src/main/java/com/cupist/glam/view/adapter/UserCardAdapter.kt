@@ -1,6 +1,5 @@
 package com.cupist.glam.view.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -15,9 +14,13 @@ class UserCardAdapter(private val vm: UserVM): RecyclerView.Adapter<RecyclerView
     private val items: ArrayList<User> = ArrayList()
 
     inner class UserCardViewHolder(private val binding: ItemUserCardBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bindView(vm: UserVM, user: User) {
-            binding.vm = vm
-            binding.item = user
+        fun bindView(item: User) {
+            binding.item = item
+            binding.btnDelete.setOnClickListener {
+                val position = items.indexOf(item)
+                items.remove(item)
+                notifyItemRemoved(position)
+            }
         }
     }
 
@@ -45,7 +48,9 @@ class UserCardAdapter(private val vm: UserVM): RecyclerView.Adapter<RecyclerView
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder.itemViewType) {
-            Constants.VIEWTYPE_USER_CARD -> (holder as UserCardViewHolder).bindView(vm, items[position])
+            Constants.VIEWTYPE_USER_CARD -> {
+                (holder as UserCardViewHolder).bindView(items[position])
+            }
             Constants.VIEWTYPE_PERSONALIZED_RECOMMEND -> (holder as PersonalizedRecommendViewHolder).bindView(vm)
         }
     }

@@ -23,7 +23,6 @@ class UserVM @Inject constructor(
 ) : ViewModel() {
     val isLoading = MutableLiveData<Boolean>()
     var nextUrl: String? = null
-    val text: String = "테스트"
 
     private val _userData = MutableLiveData<List<User>>()
     val userData: LiveData<List<User>>
