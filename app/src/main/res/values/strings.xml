@@ -9,5 +9,26 @@
     <string name="recommend_withpet">반려 동물을 키우는</string>
     <string name="more_resommendation">24개 항목 모두 보기</string>
 
+    <string name="edit_profile">프로필 수정</string>
+    <string name="info_about_profile_image">다양한 매력을 보여줄 수 있는 사진을 올려주세요</string>
+    <string name="info_more">더 알아보기</string>
+
+    <string name="text_nickname">닉네임</string>
+    <string name="text_gender">성별</string>
+    <string name="text_birth">생일</string>
+    <string name="text_location">위치</string>
+    <string name="text_introduction">소개</string>
+    <string name="text_introduction_info">회원님의 매력을 간단하게 소개해주세요</string>
+    <string name="text_introduction_block_info">SNS 아이디 등 연락처 입력 시 서비스 이용 제한됩니다</string>
+    <string name="text_height">키</string>
+    <string name="text_body_type">체형</string>
+    <string name="text_company">직장</string>
+    <string name="text_job">직업</string>
+    <string name="text_education">학력</string>
+    <string name="text_school">학교</string>
+
+    <string name="hint_input">입력해주세요</string>
+    <string name="hint_select">선택해주세요</string>
+
     <string name="height">%dcm</string>
 </resources>

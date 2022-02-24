@@ -14,7 +14,7 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideSearchRepository(api: ApiContainer): UserRepository {
+    fun provideUserRepository(api: ApiContainer): UserRepository {
         return UserRepository(api)
     }
 

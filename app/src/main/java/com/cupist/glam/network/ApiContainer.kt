@@ -1,5 +1,6 @@
 package com.cupist.glam.network
 
+import com.cupist.glam.network.model.ProfileResponse
 import com.cupist.glam.network.model.User
 import com.cupist.glam.network.model.UserResponse
 import retrofit2.Call
@@ -18,6 +19,9 @@ interface ApiContainer {
 
     @POST("/introduction/custom")
     suspend fun getPersonalizedRecommendList(): Response<UserResponse>
+
+    @GET("/profile")
+    suspend fun getProfileInfo(): Response<ProfileResponse>
 
     @GET
     suspend fun getDynamicUserList(@Url url: String): Response<UserResponse>
