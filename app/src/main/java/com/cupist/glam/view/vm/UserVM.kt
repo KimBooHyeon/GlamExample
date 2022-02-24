@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cupist.glam.domain.usecase.UserAdditionalRecommendUseCase
 import com.cupist.glam.domain.usecase.UserDynamicLinkUseCase
+import com.cupist.glam.domain.usecase.UserPersonalizedRecommendUseCase
 import com.cupist.glam.domain.usecase.UserTodayRecommendUseCase
 import com.cupist.glam.network.model.User
 import com.cupist.glam.utils.Constants
@@ -18,13 +19,19 @@ class UserVM @Inject constructor(
     private val userTodayRecommendUseCase: UserTodayRecommendUseCase,
     private val userAdditionalRecommendUseCase: UserAdditionalRecommendUseCase,
     private val userDynamicLinkUseCase: UserDynamicLinkUseCase,
+    private val userPersonalizedRecommendUseCase: UserPersonalizedRecommendUseCase,
 ) : ViewModel() {
     val isLoading = MutableLiveData<Boolean>()
     var nextUrl: String? = null
+    val text: String = "테스트"
 
     private val _userData = MutableLiveData<List<User>>()
     val userData: LiveData<List<User>>
         get() = _userData
+
+    private val _personalizedUserData = MutableLiveData<List<User>>()
+    val personalizedUserData: LiveData<List<User>>
+        get() = _personalizedUserData
 
     fun reset() {
         nextUrl = null
@@ -76,7 +83,7 @@ class UserVM @Inject constructor(
                     res.body()?.let { item ->
                         val list: ArrayList<User> = ArrayList()
                         item.data.forEach { user ->
-                            user.viewType = 1
+                            user.viewType = Constants.VIEWTYPE_USER_CARD
                             list.add(user)
                         }
                         _userData.value = list
@@ -96,7 +103,7 @@ class UserVM @Inject constructor(
                         res.body()?.let { item ->
                             val list: ArrayList<User> = ArrayList()
                             item.data.forEach { user ->
-                                user.viewType = 1
+                                user.viewType = Constants.VIEWTYPE_USER_CARD
                                 list.add(user)
                             }
                             _userData.value = list
@@ -104,6 +111,23 @@ class UserVM @Inject constructor(
                         }
                     }
                     isLoading.value = false
+                }
+            }
+        }
+
+    fun getPersonalizedRecommendList() =
+        viewModelScope.launch {
+            isLoading.value = true
+            userPersonalizedRecommendUseCase().let { res ->
+                if (res.isSuccessful) {
+                    res.body()?.let { item ->
+                        val list: ArrayList<User> = ArrayList()
+                        item.data.forEach { user ->
+                            user.viewType = Constants.VIEWTYPE_USER_CARD
+                            list.add(user)
+                        }
+                        _personalizedUserData.value = list
+                    }
                 }
             }
         }

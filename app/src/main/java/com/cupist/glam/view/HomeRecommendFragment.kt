@@ -86,6 +86,14 @@ class HomeRecommendFragment: Fragment() {
                 }
             }
         })
+        vm.personalizedUserData.observe(this, {
+            it.reversed().let { res ->
+                res.forEach { item ->
+                    adapter.addItemToFirstPosition(item)
+                }
+            }
+            binding.list.smoothScrollToPosition(0)
+        })
     }
 
     fun onRefresh() {

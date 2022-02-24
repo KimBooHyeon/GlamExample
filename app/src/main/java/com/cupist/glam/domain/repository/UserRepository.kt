@@ -12,4 +12,6 @@ class UserRepository @Inject constructor(private val api: ApiContainer) {
     suspend fun getAdditionalRecommendList(): Response<UserResponse> = api.getAdditionalRecommendList()
 
     suspend fun getDynamicUserList(url: String): Response<UserResponse> = api.getDynamicUserList(url)
+
+    suspend fun getPersonalizedRecommendList(): Response<UserResponse> = api.getPersonalizedRecommendList()
 }

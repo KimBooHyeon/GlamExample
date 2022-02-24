@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="vm"
+            type="com.cupist.glam.view.vm.UserVM" />
+    </data>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -43,21 +48,27 @@
                 android:layout_toEndOf="@id/textview1"
                 android:layout_marginStart="4dp"
                 android:src="@drawable/hot" />
+
             <androidx.cardview.widget.CardView
-                android:layout_width="80dp"
+                android:id="@+id/card"
+                android:layout_width="70dp"
                 android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:onClick="@{() -> vm.getPersonalizedRecommendList()}"
                 app:cardCornerRadius="6dp"
                 app:cardBackgroundColor="@color/glam_blue"
                 app:cardElevation="0dp">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="@string/select"
-                    android:textColor="@color/white"
-                    android:background="@android:color/transparent"/>
+                    android:textColor="@color/white"/>
             </androidx.cardview.widget.CardView>
         </RelativeLayout>
         <RelativeLayout
@@ -90,10 +101,11 @@
                 android:layout_marginStart="4dp"
                 android:src="@drawable/hot" />
             <androidx.cardview.widget.CardView
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="6dp"
                 app:cardBackgroundColor="@color/glam_blue"
                 app:cardElevation="0dp">
@@ -136,10 +148,11 @@
                 android:layout_marginStart="4dp"
                 android:src="@drawable/hot" />
             <androidx.cardview.widget.CardView
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="6dp"
                 app:cardBackgroundColor="@color/glam_blue"
                 app:cardElevation="0dp">
@@ -176,10 +189,11 @@
                 android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="30dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="6dp"
                 app:cardBackgroundColor="@color/glam_blue"
                 app:cardElevation="0dp">
@@ -198,6 +212,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="14dp"
+            android:foreground="?android:attr/selectableItemBackground"
             app:cardBackgroundColor="@color/gray1"
             app:cardCornerRadius="6dp"
             app:cardElevation="0dp">

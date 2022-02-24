@@ -1,5 +1,6 @@
 package com.cupist.glam.view.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -20,8 +21,10 @@ class UserCardAdapter(private val vm: UserVM): RecyclerView.Adapter<RecyclerView
         }
     }
 
-    inner class PersonalizedRecommendViewHolder(binding: ItemPersonalizedRecommendBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bindView() {}
+    inner class PersonalizedRecommendViewHolder(private val binding: ItemPersonalizedRecommendBinding): RecyclerView.ViewHolder(binding.root) {
+        fun bindView(vm: UserVM) {
+            binding.vm = vm
+        }
     }
 
     inner class EmptyViewHolder(binding: ItemEmptyBinding): RecyclerView.ViewHolder(binding.root)
@@ -36,14 +39,14 @@ class UserCardAdapter(private val vm: UserVM): RecyclerView.Adapter<RecyclerView
                 ItemPersonalizedRecommendBinding.inflate(LayoutInflater.from(parent.context), parent, false).let {
                     return PersonalizedRecommendViewHolder(it)
                 }
+            else -> return EmptyViewHolder(ItemEmptyBinding.inflate(LayoutInflater.from(parent.context), parent, false))
         }
-        return EmptyViewHolder(ItemEmptyBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder.itemViewType) {
             Constants.VIEWTYPE_USER_CARD -> (holder as UserCardViewHolder).bindView(vm, items[position])
-            Constants.VIEWTYPE_PERSONALIZED_RECOMMEND -> (holder as PersonalizedRecommendViewHolder).bindView()
+            Constants.VIEWTYPE_PERSONALIZED_RECOMMEND -> (holder as PersonalizedRecommendViewHolder).bindView(vm)
         }
     }
 
@@ -63,5 +66,10 @@ class UserCardAdapter(private val vm: UserVM): RecyclerView.Adapter<RecyclerView
     fun addItem(item: User) {
         items.add(item)
         notifyItemInserted(items.size - 1)
+    }
+
+    fun addItemToFirstPosition(item: User) {
+        items.add(0, item)
+        notifyItemInserted(0)
     }
 }
