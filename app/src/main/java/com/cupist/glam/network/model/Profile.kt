@@ -1,12 +1,14 @@
 package com.cupist.glam.network.model
 
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Profile(
     var birthday: String,
-    var body_type: String,
+    @SerializedName("body_type")
+    var bodyType: String,
     var company: String,
     var education: String?,
     var gender: String,
@@ -22,5 +24,6 @@ data class Profile(
 
 @Parcelize
 data class ProfileResponse(
-    var data: Profile
+    var data: Profile,
+    var meta: Meta
 ): Parcelable

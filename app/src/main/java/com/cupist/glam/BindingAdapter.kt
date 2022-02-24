@@ -15,6 +15,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.cupist.glam.databinding.ItemProfileImageBinding
+import com.cupist.glam.network.model.Meta
 
 @BindingAdapter("image")
 fun ImageView.image(src: String?) {
@@ -56,10 +57,25 @@ fun TextView.setJobAndDistance(job: String, distance: Long) {
     text = String.format("%s · %s", job, dis)
 }
 
-@BindingAdapter("gender")
-fun TextView.setGender(gender: String?) {
-    gender?.let {
-        text = if (gender == "F") "여성" else "남성"
+@BindingAdapter("meta", "height")
+fun TextView.setHeight(meta: Meta.HeightRange?, height: Int?) {
+    meta?.let { range ->
+        height?.let {
+            text = when {
+                height < range.min -> String.format("%dcm 미만", height)
+                height > range.max -> String.format("%dcm 초과", height)
+                else -> String.format("%dcm", height)
+            }
+        }
+    }
+}
+
+@BindingAdapter("meta", "type")
+fun TextView.setType(meta: ArrayList<Meta.KeyNamePair>?, type: String?) {
+    meta?.let {
+        type?.let {
+            text = meta.find { it.key == type }?.name
+        }
     }
 }
 
