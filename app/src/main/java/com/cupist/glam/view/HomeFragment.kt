@@ -1,5 +1,6 @@
 package com.cupist.glam.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,6 +32,10 @@ class HomeFragment: Fragment() {
                 super.onPageSelected(position)
             }
         })
+        binding.ivSetting.setOnClickListener {
+            val intent = Intent(context, ProfileActivity::class.java)
+            startActivity(intent)
+        }
 
         TabLayoutMediator(binding.tab, binding.viewPager) { tab, position ->
             when(position) {
