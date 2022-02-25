@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.cupist.glam.R
 import com.cupist.glam.view.adapter.FragmentAdapter
 import com.cupist.glam.databinding.FragmentHomeBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -32,11 +33,11 @@ class HomeFragment: Fragment() {
         })
 
         TabLayoutMediator(binding.tab, binding.viewPager) { tab, position ->
-            tab.text = when(position) {
-                0 -> "glam"
-                1 -> "근처"
-                2 -> "라이브"
-                else -> "Home"
+            when(position) {
+                0 -> tab.customView = layoutInflater.inflate(R.layout.tab_logo, null)
+                1 -> tab.text = "근처"
+                2 -> tab.text = "라이브"
+                else -> tab.text = "Home"
             }
         }.attach()
     }
