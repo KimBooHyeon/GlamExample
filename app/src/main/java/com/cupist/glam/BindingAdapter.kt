@@ -16,6 +16,7 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.cupist.glam.databinding.ItemProfileImageBinding
 import com.cupist.glam.network.model.Meta
+import com.smarteist.autoimageslider.SliderView
 
 @BindingAdapter("image")
 fun ImageView.image(src: String?) {
@@ -40,6 +41,11 @@ fun ImageView.imageRound(src: String?) {
         )
         .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
         .into(this)
+}
+
+@BindingAdapter("slide_images")
+fun SliderView.setImages(pictures: ArrayList<String>) {
+
 }
 
 @BindingAdapter("nickname", "age")

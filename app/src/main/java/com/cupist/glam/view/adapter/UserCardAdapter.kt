@@ -21,6 +21,18 @@ class UserCardAdapter(private val vm: UserVM): RecyclerView.Adapter<RecyclerView
                 items.remove(item)
                 notifyItemRemoved(position)
             }
+            binding.slider.let {
+                val adapter = ImageSliderAdapter()
+                adapter.setItems(item.pictures)
+                it.setSliderAdapter(adapter)
+                it.setInfiniteAdapterEnabled(false)
+            }
+            binding.viewPrevious.setOnClickListener {
+                binding.slider.slideToPreviousPosition()
+            }
+            binding.viewNext.setOnClickListener {
+                binding.slider.slideToNextPosition()
+            }
         }
     }
 
