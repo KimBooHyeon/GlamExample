@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.cupist.glam.R
+import com.cupist.glam.custom.CustomEditDialog
 import com.cupist.glam.custom.CustomListDialog
 import com.cupist.glam.databinding.ActivityProfileBinding
 import com.cupist.glam.network.model.Meta
@@ -32,6 +33,16 @@ class ProfileActivity: AppCompatActivity() {
         vm.getProfileInfo()
         binding.ivBack.setOnClickListener {
             finish()
+        }
+        binding.tvIntroduction.setOnClickListener {
+            val dialog = CustomEditDialog(this)
+            dialog.setDefaultText(vm.profileData.value!!.introduction)
+            dialog.setOnItemChanged {
+                val profile = vm.profileData.value!!
+                profile.introduction = it
+                vm.setValue(profile)
+            }
+            dialog.show()
         }
         binding.tvHeight.setOnClickListener {
             setDialog(Constants.DIALOG_TYPE_HEIGHT)

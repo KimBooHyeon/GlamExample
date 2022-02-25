@@ -13,11 +13,10 @@ class Constants {
         val DIALOG_TYPE_JOB = 13
         val DIALOG_TYPE_EDUCATION = 14
 
-        //        val DIALOG_LIST_EDUCATION: ArrayList<String> = arrayListOf("고등학교", "전문대", "대학교", "석사", "박사", "기타")
         val DIALOG_LIST_JOB: ArrayList<Meta.KeyNamePair> = arrayListOf(
             Meta.KeyNamePair("개발자", "개발자"),
             Meta.KeyNamePair("디자이너", "디자이너"),
-            Meta.KeyNamePair("기획자", "기회자 ")
+            Meta.KeyNamePair("기획자", "기획자 ")
         )
     }
 }

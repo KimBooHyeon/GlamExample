@@ -12,6 +12,7 @@
     <string name="edit_profile">프로필 수정</string>
     <string name="info_about_profile_image">다양한 매력을 보여줄 수 있는 사진을 올려주세요</string>
     <string name="info_more">더 알아보기</string>
+    <string name="done">완료</string>
 
     <string name="text_nickname">닉네임</string>
     <string name="text_gender">성별</string>
@@ -29,6 +30,7 @@
 
     <string name="hint_input">입력해주세요</string>
     <string name="hint_select">선택해주세요</string>
+    <string name="hint_introduction">회원님의 매력을 간단하게 소개해주세요</string>
 
     <string name="height">%dcm</string>
 </resources>

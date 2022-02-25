@@ -3,6 +3,7 @@ package com.cupist.glam.custom
 import android.app.Dialog
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.MutableLiveData
 import com.cupist.glam.Global
@@ -12,6 +13,7 @@ import com.cupist.glam.utils.Constants
 
 class CustomListDialog(context: Context) : Dialog(context) {
     val binding: DialogListBinding by lazy { DialogListBinding.inflate(LayoutInflater.from(context)) }
+    val mGlobal: Global by lazy { Global.INSTANCE }
     var type = MutableLiveData<Int>()
     private val items: ArrayList<Meta.KeyNamePair> = ArrayList()
 
@@ -42,6 +44,8 @@ class CustomListDialog(context: Context) : Dialog(context) {
         binding.list.removeAllViews()
         items.forEach { item ->
             val textView = TextView(context)
+            val padding = mGlobal.convertDpToPixel(context, 8)
+            textView.setPadding(padding, padding, padding, padding)
             textView.text = item.name
             textView.setOnClickListener {
                 listener.onItemSelected(item.key)
@@ -49,8 +53,8 @@ class CustomListDialog(context: Context) : Dialog(context) {
             }
             binding.list.addView(textView)
         }
-        if (items.size > 7) {
-            binding.scroll.layoutParams.height = Global.INSTANCE.convertDpToPixel(context, 200)
+        if (items.size > 10) {
+            binding.scroll.layoutParams.height = mGlobal.convertDpToPixel(context, 300)
         }
     }
 
